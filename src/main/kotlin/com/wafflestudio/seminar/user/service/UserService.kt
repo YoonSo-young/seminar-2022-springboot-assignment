@@ -76,7 +76,7 @@ class UserServiceImpl(
 
 
     override fun UserGetInfo(values: String?, authConfig: AuthConfig): String? {
-        if (values == null) { // 어라라 음 404가 뜨네요 header 모를 때 받는 방법?
+        if (values == null) {
             throw SeminarUserException("Need custom header", HttpStatus.FORBIDDEN)
         } else {
             val user = userRepository.findByEmail(values)
@@ -94,7 +94,7 @@ class UserServiceImpl(
         data: CreateSurveyRequest,
         authConfig: AuthConfig
     ) {
-        if (data == null) { //어어어어ㅓㅇ.....
+        if (data == null) {
             throw SeminarUserException("Need more info.", HttpStatus.BAD_REQUEST)
         } else if (osRepository.findByOsName(data.osName) == null) {
             throw SeminarUserException("Wrong OS.", HttpStatus.NOT_FOUND)
