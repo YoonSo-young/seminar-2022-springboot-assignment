@@ -73,8 +73,8 @@ class UserServiceImpl(
             return user.id
         }
     }
-
-
+    
+    
     override fun UserGetInfo(values: String?, authConfig: AuthConfig): String? {
         if (values == null) {
             throw SeminarUserException("Need custom header", HttpStatus.FORBIDDEN)
